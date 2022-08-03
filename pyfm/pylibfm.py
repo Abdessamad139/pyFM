@@ -135,7 +135,9 @@ class FM:
         y_i = np.ones(y.shape, dtype=np.float64, order="C")
         y_i[y != 1] = -1.0
         return y_i
-
+    def coef(self):
+        print("hello")
+        return self.w
     def fit(self, X, y):
         """Fit factorization machine using Stochastic Gradient Descent with Adaptive Regularization.
 
@@ -206,7 +208,7 @@ class FM:
                                task,
                                self.seed,
                                verbose)
-
+        print(self.w)
         return self.fm_fast.fit(X_train_dataset, validation_dataset)
 
         # report epoch information
